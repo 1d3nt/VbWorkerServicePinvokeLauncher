@@ -18,6 +18,31 @@
 - [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - A compatible development environment (e.g., Visual Studio 2022 or later).
 
+## Updating the `FilePath` Variable in `appsettings.json`
+
+To change the `FilePath` variable value in your `appsettings.json` file, follow these steps:
+
+1. **Open Your Project**
+
+   Navigate to your project directory and open it in your preferred IDE (e.g., Visual Studio).
+
+2. **Locate the `appsettings.json` File**
+
+   Find the `appsettings.json` file in the root directory of your project.
+
+3. **Edit the `appsettings.json` File**
+
+   Open the `appsettings.json` file and locate the section where the `FilePath` is defined. Modify the value of the `FilePath` variable to your desired path. For example:
+
+   ```json
+   {
+     "WorkerServiceSettings": {
+       "FilePath": "C:\\New\\Path\\To\\Your\\File.txt"
+     }
+   }
+
+
+
 ### Steps to Install
 
 1. **Clone the Repository**
