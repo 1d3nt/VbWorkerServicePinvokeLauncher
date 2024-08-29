@@ -24,3 +24,17 @@
 
    ```bash
    git clone https://github.com/1d3nt/VbWorkerServicePinvokeLauncher.git
+
+## Installing and Starting the Service
+
+### Install the Service
+
+```bash
+sc create VbWorkerService binPath= "Path\VbWorkerServicePinvokeLauncher.exe"
+```
+
+### Start the service
+
+```bash 
+sc start VbWorkerService
+```
