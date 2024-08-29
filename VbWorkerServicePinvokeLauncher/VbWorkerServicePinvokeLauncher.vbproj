@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>dotnet-VbWorkerServicePinvokeLauncher-f0c0420a-d871-4424-ae01-e70bfe7ef966</UserSecretsId>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <RootNamespace>VbWorkerServicePinvokeLauncher</RootNamespace>
+    <ImportedNamespaces>Microsoft.Extensions.Configuration=False,Microsoft.Extensions.DependencyInjection=False,Microsoft.Extensions.Hosting=False,Microsoft.Extensions.Logging=False,System.IO=False,System.Net.Http=False,System.Threading=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,VbWorkerServicePinvokeLauncher=True</ImportedNamespaces>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Import Include="Microsoft.Extensions.Configuration" />
+    <Import Include="Microsoft.Extensions.DependencyInjection" />
+    <Import Include="Microsoft.Extensions.Hosting" />
+    <Import Include="Microsoft.Extensions.Logging" />
+    <Import Include="System.IO" />
+    <Import Include="System.Net.Http" />
+    <Import Include="System.Runtime.InteropServices" />
+    <Import Include="System.Threading" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.7.24405.7" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-preview.7.24405.7" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="9.0.0-preview.7.24405.7" />
+  </ItemGroup>
+</Project>
