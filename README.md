@@ -38,3 +38,12 @@ sc create VbWorkerService binPath= "Path\VbWorkerServicePinvokeLauncher.exe"
 ```bash 
 sc start VbWorkerService
 ```
+
+This setup allows users to adjust the path to their specific needs and handles the installation and starting of the service.
+
+
+
+
+
+
+
