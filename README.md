@@ -24,3 +24,31 @@
 
    ```bash
    git clone https://github.com/1d3nt/VbWorkerServicePinvokeLauncher.git
+
+## Installation
+
+### Navigate to the Project Directory
+
+```bash
+cd VbWorkerServicePinvokeLauncher
+```
+
+### Restore NuGet Packages
+
+```bash
+dotnet restore
+```
+
+### Build the Project
+
+```bash
+dotnet build
+```
+
+### Run the Application
+
+You can run the application from the command line:
+
+```bash
+dotnet run
+```
