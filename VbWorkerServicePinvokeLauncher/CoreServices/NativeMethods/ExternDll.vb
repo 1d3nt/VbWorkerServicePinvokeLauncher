@@ -28,21 +28,5 @@
         '''    </para>
         ''' </devdoc>
         Friend Const Ntdll As String = "ntdll.dll"
-
-        ''' <devdoc>
-        '''    <para>
-        '''       Specifies that the
-        '''       User32.dll is dynamic link library
-        '''    </para>
-        ''' </devdoc>
-        Friend Const User32 As String = "User32.dll"
-
-        ''' <devdoc>
-        '''    <para>
-        '''       Specifies that the
-        '''       winsta.dll is dynamic link library
-        '''    </para>
-        ''' </devdoc>
-        Friend Const Winsta As String = "winsta.dll"
     End Class
 End Namespace
