@@ -1,0 +1,106 @@
+﻿Namespace CoreServices.NativeMethods.Enums
+
+    ''' <summary>
+    ''' Represents various access rights that can be granted to a process.
+    ''' This enum is included for completeness, although it is not currently utilized in the application.
+    ''' </summary>
+    ''' <remarks>
+    ''' The <see cref="ProcessAccessRights"/> enum defines constants for various process access rights that can be granted to a process.
+    ''' These rights are used in Windows API functions like <see cref="Methods.NativeMethods.OpenProcess"/> to specify access levels for process management.
+    ''' 
+    ''' Although there is no direct C++ enumeration for these values, they correspond to constants used in the Windows API:
+    ''' <list type="bullet">
+    '''     <item><description><c>PROCESS_ALL_ACCESS</c> includes all the access rights represented in this enum.</description></item>
+    '''     <item><description><c>PROCESS_TERMINATE</c> corresponds to <see cref="Terminate"/>.</description></item>
+    '''     <item><description><c>PROCESS_CREATE_THREAD</c> corresponds to <see cref="CreateThread"/>.</description></item>
+    '''     <item><description><c>PROCESS_VM_OPERATION</c> corresponds to <see cref="VirtualMemoryOperation"/>.</description></item>
+    '''     <item><description><c>PROCESS_VM_READ</c> corresponds to <see cref="VirtualMemoryRead"/>.</description></item>
+    '''     <item><description><c>PROCESS_DUP_HANDLE</c> corresponds to <see cref="DuplicateHandle"/>.</description></item>
+    '''     <item><description><c>PROCESS_CREATE_PROCESS</c> corresponds to <see cref="CreateProcess"/>.</description></item>
+    '''     <item><description><c>PROCESS_SET_QUOTA</c> corresponds to <see cref="SetQuota"/>.</description></item>
+    '''     <item><description><c>PROCESS_SET_INFORMATION</c> corresponds to <see cref="SetInformation"/>.</description></item>
+    '''     <item><description><c>PROCESS_QUERY_INFORMATION</c> corresponds to <see cref="QueryInformation"/>.</description></item>
+    '''     <item><description><c>PROCESS_QUERY_LIMITED_INFORMATION</c> corresponds to <see cref="QueryLimitedInformation"/>.</description></item>
+    '''     <item><description><c>PROCESS_SYNCHRONIZE</c> corresponds to <see cref="Synchronize"/>.</description></item>
+    ''' </list>
+    ''' 
+    ''' For detailed information about these access rights, refer to:
+    ''' <see href="https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights">Process Security and Access Rights</see>.
+    ''' Note: The <c>UsedImplicitly</c> attribute is applied to each member of the enum to suppress warnings about these members being unused. 
+    ''' This ensures that the enum is kept complete for completeness and future extensibility, despite not being utilized directly in the current project.
+    ''' </remarks>
+    <UsedImplicitly, Flags>
+    Friend Enum ProcessAccessRights As UInteger
+        ''' <summary>
+        ''' Grants all available access rights.
+        ''' </summary>
+        <UsedImplicitly>
+        All = &H1F0FFF
+
+        ''' <summary>
+        ''' Grants the right to terminate a process.
+        ''' </summary>
+        <UsedImplicitly>
+        Terminate = &H1
+
+        ''' <summary>
+        ''' Grants the right to create a thread in the process.
+        ''' </summary>
+        <UsedImplicitly>
+        CreateThread = &H2
+
+        ''' <summary>
+        ''' Grants the right to perform virtual memory operations.
+        ''' </summary>
+        <UsedImplicitly>
+        VirtualMemoryOperation = &H8
+
+        ''' <summary>
+        ''' Grants the right to read virtual memory.
+        ''' </summary>
+        <UsedImplicitly>
+        VirtualMemoryRead = &H10
+
+        ''' <summary>
+        ''' Grants the right to duplicate a handle.
+        ''' </summary>
+        <UsedImplicitly>
+        DuplicateHandle = &H40
+
+        ''' <summary>
+        ''' Grants the right to create a process in the process.
+        ''' </summary>
+        <UsedImplicitly>
+        CreateProcess = &H80
+
+        ''' <summary>
+        ''' Grants the right to set quotas for the process.
+        ''' </summary>
+        <UsedImplicitly>
+        SetQuota = &H100
+
+        ''' <summary>
+        ''' Grants the right to set process information.
+        ''' </summary>
+        <UsedImplicitly>
+        SetInformation = &H200
+
+        ''' <summary>
+        ''' Grants the right to query process information.
+        ''' </summary>
+        <UsedImplicitly>
+        QueryInformation = &H400
+
+        ''' <summary>
+        ''' Grants the right to query limited information about the process.
+        ''' </summary>
+        <UsedImplicitly>
+        QueryLimitedInformation = &H1000
+
+        ''' <summary>
+        ''' Grants the right to synchronize with the process.
+        ''' </summary>
+        <UsedImplicitly>
+        Synchronize = &H100000
+    End Enum
+End Namespace

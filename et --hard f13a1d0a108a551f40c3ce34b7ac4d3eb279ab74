@@ -1,0 +1,60 @@
+[33mcommit f13a1d0a108a551f40c3ce34b7ac4d3eb279ab74[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 409cdee 305a7f8
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:51:25 2024 +0100
+
+    Merge branch 'main' of https://github.com/1d3nt/VbWorkerServicePinvokeLauncher
+
+[33mcommit 409cdee7960c870de8c8681e126da71896463998[m[33m ([m[1;32mmaster[m[33m)[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:47:17 2024 +0100
+
+    Initial commit with VbWorkerServicePinvokeLauncher project
+
+[33mcommit 305a7f800478e6368803d283398c252b0232c16b[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:34:57 2024 +0100
+
+    Update README.md
+
+[33mcommit e1b91dc5ce6a7548c3d56b357b5a4827667b0a1a[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:32:48 2024 +0100
+
+    Update README.md
+
+[33mcommit 5a90a90d7f30831e225f51ff3417a8fd5a7e3ddf[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:26:38 2024 +0100
+
+    Update README.md
+
+[33mcommit 70ae0db322bdf3ff11211904e4fbb17e34a70c1a[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:25:13 2024 +0100
+
+    Update README.md
+
+[33mcommit a6e731785debafafb777f64c88722396e8ecbf51[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:19:05 2024 +0100
+
+    Update README.md
+
+[33mcommit 8af9198720ee35adf619796b144ae0f22da0b3c8[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:18:42 2024 +0100
+
+    Update README.md
+
+[33mcommit 0402fca155e4cc1232bcbe058386bf05f260ec56[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:16:40 2024 +0100
+
+    Update LICENSE
+
+[33mcommit 273414aa60c6a5c1ab117f012bee747049bded51[m
+Author: ident <44583516+1d3nt@users.noreply.github.com>
+Date:   Fri Aug 30 00:16:09 2024 +0100
+
+    Initial commit

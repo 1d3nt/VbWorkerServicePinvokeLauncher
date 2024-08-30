@@ -1,5 +1,5 @@
-﻿Imports VbWorkerServicePinvokeLauncher.Enums
-Imports VbWorkerServicePinvokeLauncher.Structures
+﻿Imports VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Structs
+Imports VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Enums
 Imports VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Methods
 
 ''' <summary>
@@ -11,27 +11,27 @@ Public Class ProcessManager
     ''' </summary>
     Private Const MWindowStationDesktopCreation As String = "winsta0\default"
 
-''' <summary>
-'''     Responsible for creating and executing a new process.
-''' </summary>
-''' <param name="applicationPath">
-'''     The path to the executable that this class will manage.
-''' </param>
-''' <param name="processName">
-'''     The process to Impersonate process name.
-''' </param>
-''' <remarks>
-'''     The <see cref="ProcessManager" /> class is responsible for managing a process that will run with elevated
-'''     privileges..
-''' </remarks>
-    Public Shared Sub TryCreateProcess(applicationPath As String,  processName As String)
-        Const dwCreationFlags = AccessRights.NormalPriorityClass Or AccessRights.CreateNewConsole
+    ''' <summary>
+    '''     Responsible for creating and executing a new process.
+    ''' </summary>
+    ''' <param name="applicationPath">
+    '''     The path to the executable that this class will manage.
+    ''' </param>
+    ''' <param name="processName">
+    '''     The process to Impersonate process name.
+    ''' </param>
+    ''' <remarks>
+    '''     The <see cref="ProcessManager" /> class is responsible for managing a process that will run with elevated
+    '''     privileges..
+    ''' </remarks>
+    Public Shared Sub TryCreateProcess(applicationPath As String, processName As String)
+        Const dwCreationFlags = AccessMask.NormalPriorityClass Or AccessMask.CreateNewConsole
 
-        Dim dwSessionId As Integer = NativeMethods.WTSGetActiveConsoleSessionId()
-        Dim specifiedId as integer = GetSpecifiedId(processName, dwSessionId)
+        Dim dwSessionId = NativeMethods.WTSGetActiveConsoleSessionId()
+        Dim specifiedId  = GetSpecifiedId(processName, dwSessionId)
         Dim processHandle As IntPtr = TryOpenProcess(specifiedId)
 
-        If processHandle = IntPtr.Zero Then ' If IntPtr.Equals(processHandle, IntPtr.Zero) Then
+        If Equals(processHandle, IntPtr.Zero) Then '
             NativeMethods.CloseHandle(processHandle)
             Exit Sub
         End If
@@ -75,8 +75,8 @@ Public Class ProcessManager
     '''     If the function succeeds, the return value is an open handle to the specified process. If the function fails, the
     '''     return value is NULL.
     ''' </returns>
-    Private Shared Function TryOpenProcess(specifiedId As Integer) As IntPtr
-        Return NativeMethods.OpenProcess(AccessRights.QueryInformation, False, specifiedId)
+    Private Shared Function TryOpenProcess(specifiedId As UInteger) As IntPtr
+        Return NativeMethods.OpenProcess(AccessMask.QueryInformation, False, specifiedId)
     End Function
 
     ''' <summary>
@@ -92,7 +92,7 @@ Public Class ProcessManager
     '''     The access token associated with the process returned from <see cref="GetSpecifiedId" /> method.
     ''' </returns>
     Private Shared Function TryOpenProcessToken(processHandle As IntPtr, ByRef tokenHandle As IntPtr) As Boolean
-        Return NativeMethods.OpenProcessToken(processHandle, AccessRights.TokenDuplicate, tokenHandle)
+        Return NativeMethods.OpenProcessToken(processHandle, AccessMask.TokenDuplicate, tokenHandle)
     End Function
 
     ''' <summary>
@@ -111,7 +111,7 @@ Public Class ProcessManager
     '''     The duplicate access token associated with the process returned from <see cref="TryOpenProcessToken" /> method.
     ''' </returns>
     Private Shared Function TryDuplicateToken(ByRef attributes As SecurityAttributes, tokenHandle As IntPtr, ByRef hToken As IntPtr) As Boolean
-        Return NativeMethods.DuplicateTokenEx(tokenHandle, AccessRights.MaximumAllowed, attributes, SecurityImpersonationLevel.SecurityIdentification, TokenType.TokenPrimary, hToken)
+        Return NativeMethods.DuplicateTokenEx(tokenHandle, AccessMask.MaximumAllowed, attributes, SecurityImpersonationLevel.SecurityIdentification, TokenType.TokenPrimary, hToken)
     End Function
 
     ''' <summary>
@@ -136,7 +136,7 @@ Public Class ProcessManager
     ''' <param name="hToken">
     '''     The duplicate access token associated with the process returned from <see cref="TryDuplicateToken" /> method.
     ''' </param>
-    Private Shared Sub TryCreateProcessAsUser(dwCreationFlags As AccessRights, ByRef startupInfo As StartupInfoA, ByRef processInformation As ProcessInformation, application As String, ByRef attributes As SecurityAttributes, hToken As IntPtr)
+    Private Shared Sub TryCreateProcessAsUser(dwCreationFlags As AccessMask, ByRef startupInfo As StartupInfoA, ByRef processInformation As ProcessInformation, application As String, ByRef attributes As SecurityAttributes, hToken As IntPtr)
         NativeMethods.CreateProcessAsUser(hToken, Nothing, application, attributes, attributes, True, dwCreationFlags, IntPtr.Zero, Nothing, startupInfo, processInformation)
     End Sub
 
@@ -147,7 +147,7 @@ Public Class ProcessManager
     '''     The <see cref="StartupInfoA" /> that contains the startup attributes.
     ''' </returns>
     Private Shared Function GetStartupInfo() As StartupInfoA
-        Dim startupInfo As New StartupInfoA() With {.cb = Marshal.SizeOf(startupInfo), .lpDesktop = MWindowStationDesktopCreation, .dwFlags = startupInfo.dwFlags Or AccessRights.StartFUsestdhandles}
+        Dim startupInfo As New StartupInfoA() With {.cb = Marshal.SizeOf(startupInfo), .lpDesktop = MWindowStationDesktopCreation, .dwFlags = startupInfo.dwFlags Or AccessMask.StartFUseStdHandles}
         Return startupInfo
     End Function
 
@@ -163,7 +163,7 @@ Public Class ProcessManager
     End Function
 
     ''' <summary>
-    '''     Gets the process ID where the consoles session identifier matches the Terminal Services session identifier.
+    '''     Gets the process ID where the console's session identifier matches the Terminal Services session identifier.
     ''' </summary>
     ''' <param name="processName">
     '''     The name that the system uses to identify the process to the user.
@@ -172,11 +172,12 @@ Public Class ProcessManager
     '''     The session identifier of the console session.
     ''' </param>
     ''' <returns>
-    '''     The unique identifier for the associated process.
+    '''     The unique identifier for the associated process as a <c>UInteger</c>.
     ''' </returns>
-    Private Shared Function GetSpecifiedId(processName As String, dwSessionId As Integer) As Integer
-        Return (From p In Process.GetProcessesByName(processName) Where p.SessionId = dwSessionId Select p.Id).FirstOrDefault()
+    Private Shared Function GetSpecifiedId(processName As String, dwSessionId As uInteger) As UInteger
+        Return CUInt((From p In Process.GetProcessesByName(processName) Where p.SessionId = dwSessionId Select p.Id).FirstOrDefault())
     End Function
+
 
     ''' <summary>
     '''     Formats forward slashes in favor of back slashes to avoid command line option specifier conflicts(DOS).
