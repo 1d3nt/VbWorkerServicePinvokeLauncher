@@ -1,4 +1,11 @@
-﻿''' <summary>
+﻿''' Author: Sam (ident)
+''' Twitter: https://twitter.com/1d3nt
+''' GitHub: https://github.com/1d3nt
+''' Email: ident@simplecoders.com
+''' Date: 31/08/2024
+''' 
+''' Just a hobby programmer that enjoys P/Invoke.
+''' <summary>
 ''' The entry point for the application.
 ''' </summary>
 ''' <remarks>
@@ -22,11 +29,8 @@ Module Program
         builder.Services.AddWindowsService(Sub(options)
                                                options.ServiceName = "VbWorkerService"
                                            End Sub)
-
         builder.Services.AddHostedService(Of Worker)()
-
         Dim host = builder.Build()
         host.Run()
     End Sub
-
 End Module
