@@ -41,7 +41,13 @@ To change the `FilePath` variable value in your `appsettings.json` file, follow 
      }
    }
 
+4. **Save Changes**
 
+Save the changes made to the appsettings.json file.
+
+5. **Verify Configuration in Your Code**
+
+Ensure that your application reads the updated FilePath value correctly.
 
 ### Steps to Install
 
