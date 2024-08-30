@@ -1,8 +1,4 @@
-﻿Imports VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Structs
-Imports VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Enums
-
-
-Namespace CoreServices.NativeMethods.Methods
+﻿Namespace CoreServices.NativeMethods.Methods
 
     ''' <summary>
     ''' Provides methods for interacting with native Windows APIs. 

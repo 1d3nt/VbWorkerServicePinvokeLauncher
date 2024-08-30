@@ -20,11 +20,11 @@
                 If _logger.IsEnabled(LogLevel.Information) Then
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now)
                 End If
-
                 If Not String.IsNullOrEmpty(_filePath) AndAlso File.Exists(_filePath) Then
                     Try
-                        Dim processManager = new ProcessManager
-                        processManager.TryCreateProcess(_filePath, DefaultRunAs)
+                        Dim processLauncher = New ElevatedProcessLauncher
+                        processLauncher.TryCreateProcess(_filePath, DefaultRunAs)
+                        _processStarted = True 
                     Catch ex As Exception
                         _logger.LogError(ex, "An error occurred while starting the executable.")
                     End Try
@@ -32,7 +32,6 @@
                     _logger.LogWarning("File path is invalid or file does not exist.")
                 End If
             End If
-
             Await Task.Delay(100000, stoppingToken)
         Loop
     End Function

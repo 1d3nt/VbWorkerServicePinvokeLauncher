@@ -26,21 +26,21 @@
     ''' <see href="https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-security_attributes">SECURITY_ATTRIBUTES Structure</see>.
     ''' </remarks>
     <StructLayout(LayoutKind.Sequential)>
-    Friend Structure SecurityAttributes
+    Public Structure SecurityAttributes
 
         ''' <summary>
         ''' The size of the structure, in bytes.
         ''' </summary>
-        Friend nLength As Integer
+        Public nLength As Integer
 
         ''' <summary>
         ''' A pointer to a security descriptor for the object.
         ''' </summary>
-        Friend lpSecurityDescriptor As IntPtr
+        Public lpSecurityDescriptor As IntPtr
 
         ''' <summary>
         ''' A boolean value that specifies whether the handle is inheritable.
         ''' </summary>
-        Friend bInheritHandle As Boolean
+        Public bInheritHandle As Boolean
     End Structure
 End Namespace
