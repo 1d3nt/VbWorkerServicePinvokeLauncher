@@ -295,7 +295,7 @@
         ''' );
         ''' </code>
         ''' </remarks>
-        <CodeAnalysis.SuppressMessage("Marshalling", "CA2101:Specify marshalling for p/invoke string arguments", Justification:="CharSet.Unicode and CharSet.Auto cause issues in this project. CharSet.Ansi has been verified to work correctly.")>
+        <SuppressMessage("Marshalling", "CA2101:Specify marshalling for p/invoke string arguments", Justification:="CharSet.Unicode and CharSet.Auto cause issues in this project. CharSet.Ansi has been verified to work correctly.")>
         <DllImport(ExternDll.Advapi32, SetLastError:=True, CharSet:=CharSet.Ansi)>
         Friend Shared Function CreateProcessAsUser(
             <[In], [Optional]> hToken As IntPtr,

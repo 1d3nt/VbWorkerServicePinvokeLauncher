@@ -23,7 +23,7 @@
     ''' <c>LPVOID</c>, and <c>BOOL</c> are all 4 bytes in size.
     ''' 
     ''' For additional details on the <c>SECURITY_ATTRIBUTES</c> structure, refer to:
-    ''' <see href="https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-security_attributes">SECURITY_ATTRIBUTES Structure</see>.
+    ''' <see href="https://learn.microsoft.com/en-us/windows/win32/api/wtypesbase/ns-wtypesbase-security_attributes">SECURITY_ATTRIBUTES Structure</see>.
     ''' </remarks>
     <StructLayout(LayoutKind.Sequential)>
     Public Structure SecurityAttributes
