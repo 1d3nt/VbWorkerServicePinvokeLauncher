@@ -110,32 +110,30 @@ Namespace CoreServices.ProcessManagement
         Friend Sub TryCreateProcess(applicationPath As String)
             Const dwCreationFlags = AccessMask.NormalPriorityClass Or AccessMask.CreateNewConsole
             Dim dwSessionId = Methods.NativeMethods.WTSGetActiveConsoleSessionId()
-            ' Use instance method of _processInfoRetriever
             Dim specifiedId = _processInfoRetriever.GetSpecifiedId(DefaultRunAs, dwSessionId)
             Dim processHandle As IntPtr = TryOpenProcess(specifiedId)
             If Equals(processHandle, IntPtr.Zero) Then
                 Methods.NativeMethods.CloseHandle(processHandle)
                 Exit Sub
             End If
-            ' Use instance method of PathFormatter
+
             Dim application = PathFormatter.CreateRelativePath(applicationPath)
             Dim tokenHandle As IntPtr = IntPtr.Zero
-            ' Use instance method of _tokenManager
             Dim openProcessToken As Boolean = _tokenManager.TryOpenProcessToken(processHandle, tokenHandle)
             If Not openProcessToken Then
                 Methods.NativeMethods.CloseHandle(processHandle)
                 Exit Sub
             End If
+
             Dim hToken As IntPtr = IntPtr.Zero
-            ' Use instance method of _tokenManager
             Dim attributes As SecurityAttributes = _tokenManager.GetSecurityAttributes()
-            ' Use instance method of _tokenManager
             Dim duplicateToken As Boolean = _tokenManager.TryDuplicateToken(attributes, tokenHandle, hToken)
             If Not duplicateToken Then
                 Methods.NativeMethods.CloseHandle(processHandle)
                 Methods.NativeMethods.CloseHandle(tokenHandle)
                 Exit Sub
             End If
+
             Dim startupInfo As StartupInfoA = GetStartupInfo()
             Dim processInformation As New ProcessInformation()
             TryCreateProcessAsUser(hToken, application, attributes, dwCreationFlags, startupInfo, processInformation)
