@@ -2,6 +2,7 @@
 ''' Twitter: https://twitter.com/1d3nt
 ''' GitHub: https://github.com/1d3nt
 ''' Email: ident@simplecoders.com
+''' VbForums: https://www.vbforums.com/member.php?113656-ident
 ''' Date: 31/08/2024
 ''' 
 ''' Just a hobby programmer that enjoys P/Invoke.
