@@ -14,17 +14,18 @@
     ''' 
     ''' The following bullet points map the <see cref="AccessMask"/> enum values to their C++ equivalents:
     ''' <list type="bullet">
-    '''     <item><description><c>QueryInformation</c> corresponds to the constant <c>TOKEN_QUERY</c> in C++.</description></item>
-    '''     <item><description><c>TokenDuplicate</c> corresponds to the constant <c>TOKEN_DUPLICATE</c> in C++.</description></item>
-    '''     <item><description><c>MaximumAllowed</c> corresponds to the constant <c>MAXIMUM_ALLOWED</c> in C++.</description></item>
-    '''     <item><description><c>CreateNewConsole</c> is not directly mapped to a single C++ constant but is used with console-related APIs.</description></item>
-    '''     <item><description><c>NormalPriorityClass</c> corresponds to setting the process priority class in C++ using the <c>PROCESS_SET_INFORMATION</c> and <c>PROCESS_PRIORITY_CLASS</c> constants.</description></item>
-    '''     <item><description><c>StartFUseStdHandles</c> is not directly mapped to a single C++ constant but indicates handle inheritance in process creation functions.</description></item>
+    '''     <item><description><see cref="QueryInformation"/> corresponds to the constant <c>TOKEN_QUERY</c> in C++.</description></item>
+    '''     <item><description><see cref="TokenDuplicate"/> corresponds to the constant <c>TOKEN_DUPLICATE</c> in C++.</description></item>
+    '''     <item><description><see cref="MaximumAllowed"/> corresponds to the constant <c>MAXIMUM_ALLOWED</c> in C++.</description></item>
+    '''     <item><description><see cref="CreateNewConsole"/> is not directly mapped to a single C++ constant but is used with console-related APIs.</description></item>
+    '''     <item><description><see cref="NormalPriorityClass"/> corresponds to setting the process priority class in C++ using the <c>PROCESS_SET_INFORMATION</c> and <c>PROCESS_PRIORITY_CLASS</c> constants.</description></item>
+    '''     <item><description><see cref="StartFUseStdHandles"/> is not directly mapped to a single C++ constant but indicates handle inheritance in process creation functions.</description></item>
     ''' </list>
     ''' 
     ''' For more information about security and access control models, refer to:
     ''' <see href="https://learn.microsoft.com/windows/win32/secauthz/access-rights-for-access-token-objects">Access Rights for Access-Token Objects</see>.
     ''' </remarks>
+
     <Flags>
     Friend Enum AccessMask As UInteger
 
