@@ -2,8 +2,15 @@
 Imports VbWorkerServicePinvokeLauncher.CoreServices.Logging
 
 ''' <summary>
-''' Represents a background service that periodically checks and starts a process using elevated privileges.
+''' Represents a background service that periodically checks and starts a process using elevated privileges. 
+''' Although the service runs in an endless loop, it is designed to start the process only once.
 ''' </summary>
+''' <remarks>
+''' The service continually monitors a condition to determine when to start a process. 
+''' Despite the continuous execution of the service, the process is only initiated once, 
+''' and subsequent checks are performed to ensure the process does not start again.
+''' </remarks>
+
 Public Class Worker
     Inherits BackgroundService
 
