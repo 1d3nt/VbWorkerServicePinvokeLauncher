@@ -3,6 +3,10 @@
     ''' <summary>
     ''' Provides constants for the names of various dynamic link libraries (DLLs).
     ''' </summary>
+    ''' <remarks>
+    ''' The <see cref="ExternDll"/> class provides a centralized location for the names of external DLLs that are commonly used in P/Invoke calls.
+    ''' This helps in avoiding hardcoding the DLL names throughout the codebase, making it easier to maintain and update if needed.
+    ''' </remarks>
     Friend Class ExternDll
 
         ''' <devdoc>

@@ -276,7 +276,7 @@
         ''' If the function succeeds, the return value is nonzero. If it fails, it returns zero. Use <see cref="Marshal.GetLastWin32Error"/> to obtain extended error information.
         ''' </returns>
         ''' <remarks>
-        ''' For more details, refer to the <see href="https://docs.microsoft.com/en-us/windows/desktop/api/securitybaseapi/nf-securitybaseapi-createprocessasusera">CreateProcessAsUserA</see> documentation.
+        ''' For more details, refer to the <see href="https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessasusera">CreateProcessAsUserA</see> documentation.
         ''' 
         ''' The function signature in C++ is:
         ''' <code>
@@ -311,7 +311,6 @@
             <[Out]> ByRef lpProcessInformation As ProcessInformation
         ) As <MarshalAs(UnmanagedType.Bool)> Boolean
         End Function
-
 
         ''' <summary>
         ''' Retrieves information about the specified process.
@@ -362,6 +361,8 @@
         ''' be referenced or used in other contexts related to process management. For historical purposes, it is important to note the 
         ''' association with the <see cref="ProcessAccessRights"/> class, which may be relevant for understanding access control in process-related operations.
         ''' </para>
+        ''' 
+        ''' For more information, refer to the <see href="https://learn.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntqueryinformationprocess">NtQueryInformationProcess</see> documentation.
         ''' </remarks>
         <DllImport(ExternDll.Ntdll)>
         Friend Shared Function NtQueryInformationProcess(

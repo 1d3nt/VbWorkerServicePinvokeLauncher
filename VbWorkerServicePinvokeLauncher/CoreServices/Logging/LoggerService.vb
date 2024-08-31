@@ -26,6 +26,7 @@
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now)
             End If
         End Sub
+
         ''' <summary>
         ''' Logs a warning message.
         ''' </summary>

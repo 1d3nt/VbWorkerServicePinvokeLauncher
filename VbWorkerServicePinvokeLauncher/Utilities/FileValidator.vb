@@ -23,8 +23,8 @@
         ''' <exception cref="System.ArgumentNullException">
         ''' Thrown when <paramref name="filePath"/> is <c>Nothing</c>.
         ''' </exception>
-        <SuppressMessage("Design", "CA1054:URI parameters should not be strings", Justification:="File paths are inherently strings, and the method operates within a file system context where this is the expected parameter type.")>
-        Public Function IsValidFilePath(filePath As String) As Boolean
+        <SuppressMessage("StaticMembers", "CA1822:Mark members as static", Justification:="Resharper incorrectly suggests marking these methods as Shared, even though they instantiate new objects of the class. Making them Shared would prevent instance creation and break the intended functionality.")>
+        Friend Function IsValidFilePath(filePath As String) As Boolean
             Return Not String.IsNullOrEmpty(filePath) AndAlso File.Exists(filePath)
         End Function
     End Class

@@ -31,7 +31,7 @@
     ''' For additional details on the <see cref="Methods.NativeMethods.NtQueryInformationProcess"/> function and this structure, refer to:
     ''' <see href="https://learn.microsoft.com/en-us/windows/desktop/api/winternl/nf-winternl-ntqueryinformationprocess">NtQueryInformationProcess</see>
     ''' and
-    ''' <see href="https://learn.microsoft.com/en-us/windows/win32/api/winternl/ns-winternl-process_basic_information">PROCESS_BASIC_INFORMATION Structure</see>.
+    ''' <see href="https://microsoft.github.io/windows-docs-rs/doc/windows/Win32/System/Threading/struct.PROCESS_BASIC_INFORMATION.html">PROCESS_BASIC_INFORMATION Structure</see>.
     ''' </remarks>
     <StructLayout(LayoutKind.Sequential, Pack:=8)>
     Friend Structure ProcessBasicInformation
