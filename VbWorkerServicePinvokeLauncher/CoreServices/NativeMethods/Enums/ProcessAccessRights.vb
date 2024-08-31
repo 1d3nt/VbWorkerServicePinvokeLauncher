@@ -10,18 +10,17 @@
     ''' 
     ''' Although there is no direct C++ enumeration for these values, they correspond to constants used in the Windows API:
     ''' <list type="bullet">
-    '''     <item><description><c>PROCESS_ALL_ACCESS</c> includes all the access rights represented in this enum.</description></item>
-    '''     <item><description><c>PROCESS_TERMINATE</c> corresponds to <see cref="Terminate"/>.</description></item>
-    '''     <item><description><c>PROCESS_CREATE_THREAD</c> corresponds to <see cref="CreateThread"/>.</description></item>
-    '''     <item><description><c>PROCESS_VM_OPERATION</c> corresponds to <see cref="VirtualMemoryOperation"/>.</description></item>
-    '''     <item><description><c>PROCESS_VM_READ</c> corresponds to <see cref="VirtualMemoryRead"/>.</description></item>
-    '''     <item><description><c>PROCESS_DUP_HANDLE</c> corresponds to <see cref="DuplicateHandle"/>.</description></item>
-    '''     <item><description><c>PROCESS_CREATE_PROCESS</c> corresponds to <see cref="CreateProcess"/>.</description></item>
-    '''     <item><description><c>PROCESS_SET_QUOTA</c> corresponds to <see cref="SetQuota"/>.</description></item>
-    '''     <item><description><c>PROCESS_SET_INFORMATION</c> corresponds to <see cref="SetInformation"/>.</description></item>
-    '''     <item><description><c>PROCESS_QUERY_INFORMATION</c> corresponds to <see cref="QueryInformation"/>.</description></item>
-    '''     <item><description><c>PROCESS_QUERY_LIMITED_INFORMATION</c> corresponds to <see cref="QueryLimitedInformation"/>.</description></item>
-    '''     <item><description><c>PROCESS_SYNCHRONIZE</c> corresponds to <see cref="Synchronize"/>.</description></item>
+    '''     <item><description><see cref="Terminate"/> corresponds to <c>PROCESS_TERMINATE</c>.</description></item>
+    '''     <item><description><see cref="CreateThread"/> corresponds to <c>PROCESS_CREATE_THREAD</c>.</description></item>
+    '''     <item><description><see cref="VirtualMemoryOperation"/> corresponds to <c>PROCESS_VM_OPERATION</c>.</description></item>
+    '''     <item><description><see cref="VirtualMemoryRead"/> corresponds to <c>PROCESS_VM_READ</c>.</description></item>
+    '''     <item><description><see cref="DuplicateHandle"/> corresponds to <c>PROCESS_DUP_HANDLE</c>.</description></item>
+    '''     <item><description><see cref="CreateProcess"/> corresponds to <c>PROCESS_CREATE_PROCESS</c>.</description></item>
+    '''     <item><description><see cref="SetQuota"/> corresponds to <c>PROCESS_SET_QUOTA</c>.</description></item>
+    '''     <item><description><see cref="SetInformation"/> corresponds to <c>PROCESS_SET_INFORMATION</c>.</description></item>
+    '''     <item><description><see cref="QueryInformation"/> corresponds to <c>PROCESS_QUERY_INFORMATION</c>.</description></item>
+    '''     <item><description><see cref="QueryLimitedInformation"/> corresponds to <c>PROCESS_QUERY_LIMITED_INFORMATION</c>.</description></item>
+    '''     <item><description><see cref="Synchronize"/> corresponds to <c>PROCESS_SYNCHRONIZE</c>.</description></item>
     ''' </list>
     ''' 
     ''' For detailed information about these access rights, refer to:
@@ -29,6 +28,7 @@
     ''' Note: The <c>UsedImplicitly</c> attribute is applied to each member of the enum to suppress warnings about these members being unused. 
     ''' This ensures that the enum is kept complete for completeness and future extensibility, despite not being utilized directly in the current project.
     ''' </remarks>
+
     <UsedImplicitly, Flags>
     Friend Enum ProcessAccessRights As UInteger
         ''' <summary>
