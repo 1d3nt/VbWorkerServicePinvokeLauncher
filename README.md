@@ -76,8 +76,3 @@ Once the service is installed, you can start it using the following command:
 sc.exe start VbWorkerService
 
 
-
-
-
-
-
