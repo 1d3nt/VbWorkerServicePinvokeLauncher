@@ -60,21 +60,18 @@ Ensure that your application reads the updated FilePath value correctly.
 
 ### Install the Service
 
+To install the service, open a terminal or PowerShell window and use the following command. Make sure to include the `.exe` extension in the path:
+
 ```bash
-sc create VbWorkerService binPath= "Path\VbWorkerServicePinvokeLauncher.exe"
+sc.exe create VbWorkerService binPath= "Path\\VbWorkerServicePinvokeLauncher.exe"
 ```
 
-### Start the service
+**Note**: Replace `"Path\\VbWorkerServicePinvokeLauncher.exe"` with the actual path to your executable file. Use double backslashes (`\\`) in the path to escape the backslash character.
 
-```bash 
-sc start VbWorkerService
-```
+### Start the Service
 
-This setup allows users to adjust the path to their specific needs and handles the installation and starting of the service.
+Once the service is installed, you can start it using the following command:
 
-
-
-
-
-
+```bash
+sc.exe start VbWorkerService
 
