@@ -6,7 +6,7 @@
     ''' <remarks>
     ''' This class contains methods for validating file paths to ensure that they are both non-empty and that the specified file exists.
     ''' </remarks>
-    Friend Class FileValidator
+    Friend NotInheritable Class  FileValidator
 
         ''' <summary>
         ''' Checks if the file path is valid and the file exists.
