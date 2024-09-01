@@ -7,7 +7,7 @@
     ''' The <see cref="PathFormatter"/> class contains utilities for manipulating and standardizing file paths. 
     ''' In particular, it helps in converting path separators to ensure compatibility with Windows-style paths.
     ''' </remarks>
-    Friend Class PathFormatter
+    Friend NotInheritable Class PathFormatter
 
         ''' <summary>
         ''' Formats forward slashes in a path to use backslashes.

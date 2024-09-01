@@ -65,7 +65,7 @@ Namespace CoreServices.ProcessManagement
         ''' <summary>
         ''' Manages security tokens, including duplication and retrieval.
         ''' </summary>
-        Private ReadOnly _tokenManager As ProcessTokenManager
+        Private ReadOnly _processTokenManager As ProcessTokenManager
 
         ''' <summary>
         ''' Retrieves process and session information.
@@ -78,7 +78,7 @@ Namespace CoreServices.ProcessManagement
         ''' <param name="tokenManager">The token manager responsible for handling security tokens.</param>
         ''' <param name="processInfoRetriever">The process information retriever responsible for retrieving process and session information.</param>
         Friend Sub New(tokenManager As ProcessTokenManager, processInfoRetriever As ProcessInfoRetriever)
-            _tokenManager = tokenManager
+            _processTokenManager = tokenManager
             _processInfoRetriever = processInfoRetriever
         End Sub
 
@@ -119,15 +119,15 @@ Namespace CoreServices.ProcessManagement
 
             Dim application = PathFormatter.CreateRelativePath(applicationPath)
             Dim tokenHandle As IntPtr = IntPtr.Zero
-            Dim openProcessToken As Boolean = _tokenManager.TryOpenProcessToken(processHandle, tokenHandle)
+            Dim openProcessToken As Boolean = _processTokenManager.TryOpenProcessToken(processHandle, tokenHandle)
             If Not openProcessToken Then
                 Methods.NativeMethods.CloseHandle(processHandle)
                 Exit Sub
             End If
 
             Dim hToken As IntPtr = IntPtr.Zero
-            Dim attributes As SecurityAttributes = _tokenManager.GetSecurityAttributes()
-            Dim duplicateToken As Boolean = _tokenManager.TryDuplicateToken(attributes, tokenHandle, hToken)
+            Dim attributes As SecurityAttributes = _processTokenManager.GetSecurityAttributes()
+            Dim duplicateToken As Boolean = _processTokenManager.TryDuplicateToken(attributes, tokenHandle, hToken)
             If Not duplicateToken Then
                 Methods.NativeMethods.CloseHandle(processHandle)
                 Methods.NativeMethods.CloseHandle(tokenHandle)

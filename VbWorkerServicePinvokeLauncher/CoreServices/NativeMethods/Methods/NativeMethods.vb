@@ -14,7 +14,7 @@
     ''' some of the security measures provided by the .NET runtime.
     ''' </remarks>
     <Security.SuppressUnmanagedCodeSecurity>
-    Friend Class NativeMethods
+    Friend NotInheritable Class NativeMethods
 
         ''' <summary>
         ''' Opens an existing local process object.
