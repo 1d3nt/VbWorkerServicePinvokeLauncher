@@ -1,16 +1,21 @@
-﻿''' Author: Sam (ident)
-''' Twitter: https://twitter.com/1d3nt
-''' GitHub: https://github.com/1d3nt
-''' Email: ident@simplecoders.com
-''' VbForums: https://www.vbforums.com/member.php?113656-ident
-''' Date: 31/08/2024
-''' 
-''' Just a hobby programmer that enjoys P/Invoke.
+﻿''' <author>
+''' Sam (ident)
+''' Twitter: <see href="https://twitter.com/1d3nt">https://twitter.com/1d3nt</see>
+''' GitHub: <see href="https://github.com/1d3nt">https://github.com/1d3nt</see>
+''' Email: <see href="mailto:ident@simplecoders.com">ident@simplecoders.com</see>
+''' VBForums: <see href="https://www.vbforums.com/member.php?113656-ident">https://www.vbforums.com/member.php?113656-ident</see>
+''' </author>
+''' <date>31/08/2024</date>
 ''' <summary>
 ''' The entry point for the application.
 ''' </summary>
 ''' <remarks>
 ''' This module contains the <see cref="Main"/> method, which sets up and starts the application host.
+''' 
+''' This project includes P/Invoke declarations and methods for interacting with Windows API functions.
+''' Contributions and enhancements are welcomed to further extend the functionality and improve the integration.
+''' 
+''' Just a hobby programmer that enjoys P/Invoke.
 ''' </remarks>
 Module Program
 
