@@ -1,4 +1,4 @@
-﻿namespace CoreServices.NativeMethods.Methods
+﻿Namespace CoreServices.NativeMethods.Methods
 
     ''' <summary>
     ''' Provides utility methods for managing handles in P/Invoke operations.
@@ -14,10 +14,16 @@
         ''' Closes the token handle if it is not null.
         ''' </summary>
         ''' <param name="tokenHandle">The handle to be closed.</param>
+        ''' <remarks>
+        ''' This method checks if the provided <paramref name="tokenHandle"/> is not equal to <see cref="NativeMethods.NullHandleValue"/>. 
+        ''' If it is not equal, the method proceeds to close the handle by calling the <see cref="NativeMethods.CloseHandle"/> method. 
+        ''' If the handle is equal to <see cref="NativeMethods.NullHandleValue"/>, which indicates an invalid or uninitialized handle, 
+        ''' the method skips the closing operation.
+        ''' </remarks>
         Friend Shared Sub CloseTokenHandleIfNotNull(tokenHandle As IntPtr)
-            If Not tokenHandle.Equals(NativeMethods.NullHandleValue) Then
+            If Not Equals(tokenHandle, NativeMethods.NullHandleValue) Then
                 NativeMethods.CloseHandle(tokenHandle)
             End If
         End Sub
     End Class
-End namespace
+End Namespace

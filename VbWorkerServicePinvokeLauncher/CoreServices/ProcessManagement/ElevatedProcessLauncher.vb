@@ -112,18 +112,18 @@ Namespace CoreServices.ProcessManagement
             Dim dwSessionId = Methods.NativeMethods.WTSGetActiveConsoleSessionId()
             Dim specifiedId = _processInfoRetriever.GetSpecifiedId(DefaultRunAs, dwSessionId)
             Dim processHandle As IntPtr = TryOpenProcess(specifiedId)
-            If Equals(processHandle, IntPtr.Zero) Then
+            If Equals(processHandle, Methods.NativeMethods.NullHandleValue) Then
                 HandleManager.CloseTokenHandleIfNotNull(processHandle)
                 Exit Sub
             End If
             Dim application = PathFormatter.CreateRelativePath(applicationPath)
-            Dim tokenHandle As IntPtr = IntPtr.Zero
+            Dim tokenHandle As IntPtr = Methods.NativeMethods.NullHandleValue
             Dim openProcessToken As Boolean = _processTokenManager.TryOpenProcessToken(processHandle, tokenHandle)
             If Not openProcessToken Then
                 HandleManager.CloseTokenHandleIfNotNull(processHandle)
                 Exit Sub
             End If
-            Dim hToken As IntPtr = IntPtr.Zero
+            Dim hToken As IntPtr = Methods.NativeMethods.NullHandleValue
             Dim attributes As SecurityAttributes = _processTokenManager.GetSecurityAttributes()
             Dim duplicateToken As Boolean = _processTokenManager.TryDuplicateToken(attributes, tokenHandle, hToken)
             If Not duplicateToken Then
