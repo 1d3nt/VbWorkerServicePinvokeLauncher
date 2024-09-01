@@ -17,6 +17,14 @@
     Friend NotInheritable Class NativeMethods
 
         ''' <summary>
+        ''' Represents a null handle value used in P/Invoke calls.
+        ''' </summary>
+        ''' <remarks>
+        ''' This field is used to represent a null handle (IntPtr.Zero) in P/Invoke calls to unmanaged code.
+        ''' </remarks>
+        Friend Shared ReadOnly NullHandleValue As IntPtr = IntPtr.Zero
+
+        ''' <summary>
         ''' Opens an existing local process object.
         ''' </summary>
         ''' <param name="dwDesiredAccess">

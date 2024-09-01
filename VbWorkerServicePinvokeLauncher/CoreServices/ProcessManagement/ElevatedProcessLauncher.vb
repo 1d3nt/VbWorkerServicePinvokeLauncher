@@ -1,4 +1,5 @@
-﻿Imports VbWorkerServicePinvokeLauncher.Utilities
+﻿Imports VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Methods
+Imports VbWorkerServicePinvokeLauncher.Utilities
 
 Namespace CoreServices.ProcessManagement
 
@@ -106,40 +107,36 @@ Namespace CoreServices.ProcessManagement
         ''' that the method should be marked as <c>Shared</c> (static). However, the method is not <c>Shared</c> 
         ''' because it relies on instance-level operations and creating new instances of the class.
         ''' </remarks>
-        <SuppressMessage("StaticMembers", "CA1822:Mark members as static", Justification:="Resharper incorrectly suggests marking these methods as Shared, even though they instantiate new objects of the class. Making them Shared would prevent instance creation and break the intended functionality.")>
         Friend Sub TryCreateProcess(applicationPath As String)
             Const dwCreationFlags = AccessMask.NormalPriorityClass Or AccessMask.CreateNewConsole
             Dim dwSessionId = Methods.NativeMethods.WTSGetActiveConsoleSessionId()
             Dim specifiedId = _processInfoRetriever.GetSpecifiedId(DefaultRunAs, dwSessionId)
             Dim processHandle As IntPtr = TryOpenProcess(specifiedId)
             If Equals(processHandle, IntPtr.Zero) Then
-                Methods.NativeMethods.CloseHandle(processHandle)
+                HandleManager.CloseTokenHandleIfNotNull(processHandle)
                 Exit Sub
             End If
-
             Dim application = PathFormatter.CreateRelativePath(applicationPath)
             Dim tokenHandle As IntPtr = IntPtr.Zero
             Dim openProcessToken As Boolean = _processTokenManager.TryOpenProcessToken(processHandle, tokenHandle)
             If Not openProcessToken Then
-                Methods.NativeMethods.CloseHandle(processHandle)
+                HandleManager.CloseTokenHandleIfNotNull(processHandle)
                 Exit Sub
             End If
-
             Dim hToken As IntPtr = IntPtr.Zero
             Dim attributes As SecurityAttributes = _processTokenManager.GetSecurityAttributes()
             Dim duplicateToken As Boolean = _processTokenManager.TryDuplicateToken(attributes, tokenHandle, hToken)
             If Not duplicateToken Then
-                Methods.NativeMethods.CloseHandle(processHandle)
-                Methods.NativeMethods.CloseHandle(tokenHandle)
+                HandleManager.CloseTokenHandleIfNotNull(processHandle)
+                HandleManager.CloseTokenHandleIfNotNull(tokenHandle)
                 Exit Sub
             End If
-
             Dim startupInfo As StartupInfoA = GetStartupInfo()
             Dim processInformation As New ProcessInformation()
             TryCreateProcessAsUser(hToken, application, attributes, dwCreationFlags, startupInfo, processInformation)
-            Methods.NativeMethods.CloseHandle(processHandle)
-            Methods.NativeMethods.CloseHandle(tokenHandle)
-            Methods.NativeMethods.CloseHandle(hToken)
+            HandleManager.CloseTokenHandleIfNotNull(processHandle)
+            HandleManager.CloseTokenHandleIfNotNull(tokenHandle)
+            HandleManager.CloseTokenHandleIfNotNull(hToken)
         End Sub
 
         ''' <summary>
@@ -155,7 +152,7 @@ Namespace CoreServices.ProcessManagement
         ''' If the function fails, the return value is <c>IntPtr.Zero</c>.
         ''' </returns>
         ''' <remarks>
-        ''' This method calls the <see cref="Methods.NativeMethods.OpenProcess"/> function with the access 
+        ''' This method calls the <see cref="NativeMethods.OpenProcess"/> function with the access 
         ''' mask <see cref="AccessMask.QueryInformation"/> to retrieve a handle to the specified process. 
         ''' For more information on the <c>OpenProcess</c> function, see the 
         ''' <see href="https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess">
@@ -196,7 +193,7 @@ Namespace CoreServices.ProcessManagement
         ''' and process ID. This structure is populated by the method and should be checked to obtain details about the newly created process.
         ''' </param>
         ''' <remarks>
-        ''' This method internally calls the <see cref="Methods.NativeMethods.CreateProcessAsUser"/> function to create the new process.
+        ''' This method internally calls the <see cref="NativeMethods.CreateProcessAsUser"/> function to create the new process.
         ''' For more information on the native API function, refer to the <see href="https://docs.microsoft.com/en-us/windows/desktop/api/securitybaseapi/nf-securitybaseapi-createprocessasusera">CreateProcessAsUserA</see> documentation.
         ''' </remarks>
         Private Shared Sub TryCreateProcessAsUser(hToken As IntPtr, application As String, ByRef attributes As SecurityAttributes, dwCreationFlags As AccessMask, ByRef startupInfo As StartupInfoA, ByRef processInformation As ProcessInformation)
@@ -211,7 +208,7 @@ Namespace CoreServices.ProcessManagement
         ''' The structure is configured with the default window station and desktop, and includes the <see cref="AccessMask.StartFUseStdHandles"/> flag for standard handles.
         ''' </returns>
         ''' <remarks>
-        ''' The <see cref="StartupInfoA"/> structure is used by the <see cref="Methods.NativeMethods.CreateProcessAsUser"/> function to determine the initial state and configuration of the process.
+        ''' The <see cref="StartupInfoA"/> structure is used by the <see cref="NativeMethods.CreateProcessAsUser"/> function to determine the initial state and configuration of the process.
         ''' For more details on the structure and its fields, refer to the <see href="https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa">StartupInfoA documentation</see>.
         ''' </remarks>
         Private Shared Function GetStartupInfo() As StartupInfoA
