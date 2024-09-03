@@ -1,5 +1,4 @@
-﻿Imports VbWorkerServicePinvokeLauncher.Utilities
-Imports VbWorkerServicePinvokeLauncher.CoreServices.Logging
+﻿Imports VbWorkerServicePinvokeLauncher.CoreServices.Logging
 
 ''' <summary>
 ''' Represents a background service that periodically checks and starts a process using elevated privileges. 

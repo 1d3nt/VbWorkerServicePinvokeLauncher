@@ -1,7 +1,4 @@
-﻿Imports VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Methods
-Imports VbWorkerServicePinvokeLauncher.Utilities
-
-Namespace CoreServices.ProcessManagement
+﻿Namespace CoreServices.ProcessManagement
 
     ''' <summary>
     ''' The <c>ElevatedProcessLauncher</c> class provides functionality to run processes under elevated privileges, 

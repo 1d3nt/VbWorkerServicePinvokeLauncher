@@ -28,6 +28,10 @@ Module Program
     ''' <remarks>
     ''' This method configures the application builder, sets up configuration files, registers the Windows service options,
     ''' and adds the <see cref="Worker"/> as a hosted service. After building the host, it starts the application.
+    ''' 
+    ''' The method is designed to be the main entry point for console applications that require 
+    ''' integration with Windows services. It leverages the .NET Generic Host to facilitate 
+    ''' the management of background services and configuration.
     ''' </remarks>
     Sub Main(args As String())
         Dim builder = Microsoft.Extensions.Hosting.Host.CreateApplicationBuilder(args)
