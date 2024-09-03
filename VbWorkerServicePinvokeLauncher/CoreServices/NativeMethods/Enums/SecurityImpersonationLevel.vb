@@ -17,7 +17,7 @@
     '''   SecurityDelegation = 3
     ''' } SECURITY_IMPERSONATION_LEVEL, *PSECURITY_IMPERSONATION_LEVEL;</c>
     ''' 
-    ''' The <c>UsedImplicitly</c> attribute is applied to each member of the enum to suppress warnings about these members being unused. 
+    ''' The <c>&lt;UsedImplicitly&gt;</c> attribute is applied to each member of the enum to suppress warnings about these members being unused. 
     ''' This ensures that the enum is kept complete for completeness and future extensibility, despite not being utilized directly in the current project.
     ''' </remarks>
     Friend Enum SecurityImpersonationLevel As Integer

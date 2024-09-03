@@ -14,7 +14,7 @@
     '''   TokenImpersonation
     ''' } TOKEN_TYPE;</c>
     ''' 
-    ''' The <c>UsedImplicitly</c> attribute is applied to the <see cref="TokenImpersonation"/> member to suppress warnings about it being unused.
+    ''' The <c>&lt;UsedImplicitly&gt;</c> attribute is applied to the <see cref="TokenImpersonation"/> member to suppress warnings about it being unused.
     ''' This ensures that the enum is kept complete for completeness and future extensibility, despite not being utilized directly in the current project.
     ''' </remarks>
     Friend Enum TokenType As Integer
