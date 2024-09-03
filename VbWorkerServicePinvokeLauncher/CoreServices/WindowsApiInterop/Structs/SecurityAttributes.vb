@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Structs
+﻿Namespace CoreServices.WindowsApiInterop.Structs
 
     ''' <summary>
     ''' The SECURITY_ATTRIBUTES structure contains the security descriptor for an object and specifies

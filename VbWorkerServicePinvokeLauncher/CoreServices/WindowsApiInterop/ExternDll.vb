@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods
+﻿Namespace CoreServices.WindowsApiInterop
 
     ''' <summary>
     ''' Provides constants for the names of various dynamic link libraries (DLLs).

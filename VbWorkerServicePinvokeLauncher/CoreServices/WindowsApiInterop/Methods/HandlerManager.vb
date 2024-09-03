@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Methods
+﻿Namespace CoreServices.WindowsApiInterop.Methods
 
     ''' <summary>
     ''' Provides utility methods for managing handles in P/Invoke operations.

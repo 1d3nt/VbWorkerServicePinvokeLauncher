@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Structs
+﻿Namespace CoreServices.WindowsApiInterop.Structs
 
     ''' <summary>
     ''' Specifies the window station, desktop, standard handles, and appearance of the main 

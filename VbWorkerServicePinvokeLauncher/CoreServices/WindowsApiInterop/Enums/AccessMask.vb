@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Enums
+﻿Namespace CoreServices.WindowsApiInterop.Enums
 
     ''' <summary>
     ''' Represents the access rights that can be granted for access token objects.

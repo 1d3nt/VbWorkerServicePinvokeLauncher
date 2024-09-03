@@ -10,7 +10,7 @@
     Friend Class ProcessTokenManager
 
         ''' <summary>
-        ''' Using the <see cref="Methods.NativeMethods.OpenProcessToken"/> function to retrieve a handle to the primary token of a process.
+        ''' Using the <see cref="NativeMethods.OpenProcessToken"/> function to retrieve a handle to the primary token of a process.
         ''' </summary>
         ''' <param name="processHandle">
         ''' The unique handle for the associated process.
@@ -22,7 +22,7 @@
         ''' <c>True</c> if the function succeeds; otherwise, <c>false</c>. The access token associated with the process is returned in <paramref name="tokenHandle"/>.
         ''' </returns>
         ''' <remarks>
-        ''' This method uses the <see cref="Methods.NativeMethods.OpenProcessToken"/> function to obtain a handle to the primary token of the specified process.
+        ''' This method uses the <see cref="NativeMethods.OpenProcessToken"/> function to obtain a handle to the primary token of the specified process.
         ''' The token handle is then used for further operations, such as duplicating the token or creating processes with the token's security context.
         ''' </remarks>
         ''' <remarks>
@@ -33,11 +33,11 @@
         ''' </remarks>
         <SuppressMessage("StaticMembers", "CA1822:Mark members as static", Justification:="ReSharper incorrectly suggests marking this method as Shared. The method relies on instance-level operations.")>
         Friend Function TryOpenProcessToken(processHandle As IntPtr, ByRef tokenHandle As IntPtr) As Boolean
-            Return Methods.NativeMethods.OpenProcessToken(processHandle, AccessMask.TokenDuplicate, tokenHandle)
+            Return NativeMethods.OpenProcessToken(processHandle, AccessMask.TokenDuplicate, tokenHandle)
         End Function
 
         ''' <summary>
-        ''' Uses the <see cref="Methods.NativeMethods.DuplicateTokenEx"/> function to duplicate the access token associated with a process.
+        ''' Uses the <see cref="NativeMethods.DuplicateTokenEx"/> function to duplicate the access token associated with a process.
         ''' </summary>
         ''' <param name="attributes">
         ''' The security attributes returned from the <see cref="GetSecurityAttributes"/> method.
@@ -52,7 +52,7 @@
         ''' <c>True</c> if the function succeeds; otherwise, <c>false</c>. The duplicate access token is returned in <paramref name="hToken"/>.
         ''' </returns>
         ''' <remarks>
-        ''' This method uses the <see cref="Methods.NativeMethods.DuplicateTokenEx"/> function to duplicate the access token.
+        ''' This method uses the <see cref="NativeMethods.DuplicateTokenEx"/> function to duplicate the access token.
         ''' The duplicated token allows for creating processes in the security context represented by the token.
         ''' For more details on the structure and its fields, refer to the <see href="https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-duplicatetokenex">DuplicateTokenEx documentation</see>.
         ''' </remarks>
@@ -64,7 +64,7 @@
         ''' </remarks>
         <SuppressMessage("StaticMembers", "CA1822:Mark members as static", Justification:="ReSharper incorrectly suggests marking this method as Shared. The method relies on instance-level operations.")>
         Friend Function TryDuplicateToken(ByRef attributes As SecurityAttributes, tokenHandle As IntPtr, ByRef hToken As IntPtr) As Boolean
-            Return Methods.NativeMethods.DuplicateTokenEx(tokenHandle, AccessMask.MaximumAllowed, attributes, SecurityImpersonationLevel.SecurityIdentification, TokenType.TokenPrimary, hToken)
+            Return NativeMethods.DuplicateTokenEx(tokenHandle, AccessMask.MaximumAllowed, attributes, SecurityImpersonationLevel.SecurityIdentification, TokenType.TokenPrimary, hToken)
         End Function
 
         ''' <summary>
@@ -74,7 +74,7 @@
         ''' A <see cref="SecurityAttributes"/> structure that specifies the security attributes for the object. The structure is configured with its length and inheritance properties.
         ''' </returns>
         ''' <remarks>
-        ''' The <see cref="SecurityAttributes"/> structure is used by functions like <see cref="Methods.NativeMethods.CreateProcessAsUser"/> to define the security characteristics of a process or thread. 
+        ''' The <see cref="SecurityAttributes"/> structure is used by functions like <see cref="NativeMethods.CreateProcessAsUser"/> to define the security characteristics of a process or thread. 
         ''' For more details on the structure and its fields, refer to the <see href="https://learn.microsoft.com/en-us/windows/win32/api/wtypesbase/ns-wtypesbase-security_attributes">SecurityAttributes documentation</see>.
         ''' </remarks>
         ''' <remarks>

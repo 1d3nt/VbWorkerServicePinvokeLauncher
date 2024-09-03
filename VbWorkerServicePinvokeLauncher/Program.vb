@@ -4,6 +4,7 @@
 ''' GitHub: <see href="https://github.com/1d3nt">https://github.com/1d3nt</see>
 ''' Email: <see href="mailto:ident@simplecoders.com">ident@simplecoders.com</see>
 ''' VBForums: <see href="https://www.vbforums.com/member.php?113656-ident">https://www.vbforums.com/member.php?113656-ident</see>
+''' ORCID: <see href="https://orcid.org/0009-0007-1363-3308">https://orcid.org/0009-0007-1363-3308</see>
 ''' </author>
 ''' <date>31/08/2024</date>
 ''' <summary>

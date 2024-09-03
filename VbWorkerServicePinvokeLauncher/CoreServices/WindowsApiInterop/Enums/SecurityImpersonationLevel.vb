@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Enums
+﻿Namespace CoreServices.WindowsApiInterop.Enums
 
     ''' <summary>
     ''' Specifies the security impersonation levels that control the degree to which a server process can act on behalf of a client process.

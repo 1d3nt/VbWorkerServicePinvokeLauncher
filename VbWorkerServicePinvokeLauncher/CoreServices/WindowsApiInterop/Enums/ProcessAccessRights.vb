@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Enums
+﻿Namespace CoreServices.WindowsApiInterop.Enums
 
     ''' <summary>
     ''' Represents various access rights that can be granted to a process.

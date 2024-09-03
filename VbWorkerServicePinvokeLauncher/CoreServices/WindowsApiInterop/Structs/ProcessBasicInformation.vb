@@ -1,10 +1,10 @@
-﻿Namespace CoreServices.NativeMethods.Structs
+﻿Namespace CoreServices.WindowsApiInterop.Structs
 
     ''' <summary>
-    ''' Contains information about a specified process, retrieved by the <see cref="Methods.NativeMethods.NtQueryInformationProcess"/> function.
+    ''' Contains information about a specified process, retrieved by the <see cref="NativeMethods.NtQueryInformationProcess"/> function.
     ''' </summary>
     ''' <remarks>
-    ''' The <see cref="ProcessBasicInformation"/> structure is used by the <see cref="Methods.NativeMethods.NtQueryInformationProcess"/> function
+    ''' The <see cref="ProcessBasicInformation"/> structure is used by the <see cref="NativeMethods.NtQueryInformationProcess"/> function
     ''' to provide various details about a process. This includes the process's exit status, base address of the 
     ''' Process Environment Block (PEB), process affinity mask, base priority, unique process ID, and the ID of 
     ''' the process from which this process was inherited.
@@ -24,11 +24,11 @@
     ''' on an 8-byte boundary, which matches the expected alignment for 64-bit systems and ensures compatibility with the
     ''' unmanaged API.
     ''' 
-    ''' Although the <see cref="Methods.NativeMethods.NtQueryInformationProcess"/> function is not currently used in the application,
+    ''' Although the <see cref="NativeMethods.NtQueryInformationProcess"/> function is not currently used in the application,
     ''' it is included in this project for completeness and potential future use. This structure and associated function are retained
     ''' as part of the development for possible future integration.
     ''' 
-    ''' For additional details on the <see cref="Methods.NativeMethods.NtQueryInformationProcess"/> function and this structure, refer to:
+    ''' For additional details on the <see cref="NativeMethods.NtQueryInformationProcess"/> function and this structure, refer to:
     ''' <see href="https://learn.microsoft.com/en-us/windows/desktop/api/winternl/nf-winternl-ntqueryinformationprocess">NtQueryInformationProcess</see>
     ''' and
     ''' <see href="https://microsoft.github.io/windows-docs-rs/doc/windows/Win32/System/Threading/struct.PROCESS_BASIC_INFORMATION.html">PROCESS_BASIC_INFORMATION Structure</see>.

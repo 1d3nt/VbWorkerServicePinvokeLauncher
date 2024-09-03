@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Methods
+﻿Namespace CoreServices.WindowsApiInterop.Methods
 
     ''' <summary>
     ''' Provides methods for interacting with native Windows APIs. 

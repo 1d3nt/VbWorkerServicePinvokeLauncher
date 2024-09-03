@@ -106,21 +106,21 @@
         ''' </remarks>
         Friend Sub TryCreateProcess(applicationPath As String)
             Const dwCreationFlags = AccessMask.NormalPriorityClass Or AccessMask.CreateNewConsole
-            Dim dwSessionId = Methods.NativeMethods.WTSGetActiveConsoleSessionId()
+            Dim dwSessionId = NativeMethods.WTSGetActiveConsoleSessionId()
             Dim specifiedId = _processInfoRetriever.GetSpecifiedId(DefaultRunAs, dwSessionId)
             Dim processHandle As IntPtr = TryOpenProcess(specifiedId)
-            If Equals(processHandle, Methods.NativeMethods.NullHandleValue) Then
+            If Equals(processHandle, NativeMethods.NullHandleValue) Then
                 HandleManager.CloseTokenHandleIfNotNull(processHandle)
                 Exit Sub
             End If
             Dim application = PathFormatter.CreateRelativePath(applicationPath)
-            Dim tokenHandle As IntPtr = Methods.NativeMethods.NullHandleValue
+            Dim tokenHandle As IntPtr = NativeMethods.NullHandleValue
             Dim openProcessToken As Boolean = _processTokenManager.TryOpenProcessToken(processHandle, tokenHandle)
             If Not openProcessToken Then
                 HandleManager.CloseTokenHandleIfNotNull(processHandle)
                 Exit Sub
             End If
-            Dim hToken As IntPtr = Methods.NativeMethods.NullHandleValue
+            Dim hToken As IntPtr = NativeMethods.NullHandleValue
             Dim attributes As SecurityAttributes = _processTokenManager.GetSecurityAttributes()
             Dim duplicateToken As Boolean = _processTokenManager.TryDuplicateToken(attributes, tokenHandle, hToken)
             If Not duplicateToken Then
@@ -156,7 +156,7 @@
         ''' official documentation</see>.
         ''' </remarks>
         Private Shared Function TryOpenProcess(specifiedId As UInteger) As IntPtr
-            Return Methods.NativeMethods.OpenProcess(AccessMask.QueryInformation, False, specifiedId)
+            Return NativeMethods.OpenProcess(AccessMask.QueryInformation, False, specifiedId)
         End Function
 
         ''' <summary>
@@ -194,7 +194,7 @@
         ''' For more information on the native API function, refer to the <see href="https://docs.microsoft.com/en-us/windows/desktop/api/securitybaseapi/nf-securitybaseapi-createprocessasusera">CreateProcessAsUserA</see> documentation.
         ''' </remarks>
         Private Shared Sub TryCreateProcessAsUser(hToken As IntPtr, application As String, ByRef attributes As SecurityAttributes, dwCreationFlags As AccessMask, ByRef startupInfo As StartupInfoA, ByRef processInformation As ProcessInformation)
-            Methods.NativeMethods.CreateProcessAsUser(hToken, Nothing, application, attributes, attributes, True, dwCreationFlags, IntPtr.Zero, Nothing, startupInfo, processInformation)
+            NativeMethods.CreateProcessAsUser(hToken, Nothing, application, attributes, attributes, True, dwCreationFlags, IntPtr.Zero, Nothing, startupInfo, processInformation)
         End Sub
 
         ''' <summary>

@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Structs
+﻿Namespace CoreServices.WindowsApiInterop.Structs
 
     ''' <summary>
     ''' Contains information about a newly created process and its primary thread.

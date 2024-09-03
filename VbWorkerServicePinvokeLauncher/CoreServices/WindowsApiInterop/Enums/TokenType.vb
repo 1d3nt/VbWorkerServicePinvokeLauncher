@@ -1,4 +1,4 @@
-﻿Namespace CoreServices.NativeMethods.Enums
+﻿Namespace CoreServices.WindowsApiInterop.Enums
 
     ''' <summary>
     ''' Specifies the type of token, distinguishing between a primary token and an impersonation token.

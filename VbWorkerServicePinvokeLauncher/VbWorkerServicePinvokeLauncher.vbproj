@@ -6,7 +6,7 @@
     <UserSecretsId>dotnet-VbWorkerServicePinvokeLauncher-f0c0420a-d871-4424-ae01-e70bfe7ef966</UserSecretsId>
     <RemoveIntegerChecks>true</RemoveIntegerChecks>
     <RootNamespace>VbWorkerServicePinvokeLauncher</RootNamespace>
-    <ImportedNamespaces>JetBrains.Annotations=False,Microsoft.Extensions.Configuration=False,Microsoft.Extensions.DependencyInjection=False,Microsoft.Extensions.Hosting=False,Microsoft.Extensions.Logging=False,System.Diagnostics.CodeAnalysis=False,System.IO=False,System.Net.Http=False,System.Runtime.InteropServices=False,System.Threading=False,VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods=False,VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Enums=False,VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Methods=False,VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Structs=False,VbWorkerServicePinvokeLauncher.CoreServices.ProcessManagement=False,VbWorkerServicePinvokeLauncher.Utilities=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,VbWorkerServicePinvokeLauncher=True</ImportedNamespaces>
+    <ImportedNamespaces>JetBrains.Annotations=False,Microsoft.Extensions.Configuration=False,Microsoft.Extensions.DependencyInjection=False,Microsoft.Extensions.Hosting=False,Microsoft.Extensions.Logging=False,System.Diagnostics.CodeAnalysis=False,System.IO=False,System.Net.Http=False,System.Runtime.InteropServices=False,System.Threading=False,System.Transactions=False,VbWorkerServicePinvokeLauncher.CoreServices.ProcessManagement=False,VbWorkerServicePinvokeLauncher.CoreServices.WindowsApiInterop.Enums=False,VbWorkerServicePinvokeLauncher.CoreServices.WindowsApiInterop.Methods=False,VbWorkerServicePinvokeLauncher.CoreServices.WindowsApiInterop.Structs=False,VbWorkerServicePinvokeLauncher.Utilities=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,VbWorkerServicePinvokeLauncher=True</ImportedNamespaces>
     <OptionStrict>On</OptionStrict>
   </PropertyGroup>
 
@@ -21,11 +21,11 @@
     <Import Include="System.Net.Http" />
     <Import Include="System.Runtime.InteropServices" />
     <Import Include="System.Threading" />
-    <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods" />
-    <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Enums" />
-    <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Methods" />
-    <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.NativeMethods.Structs" />
+    <Import Include="System.Transactions" />
     <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.ProcessManagement" />
+    <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.WindowsApiInterop.Enums" />
+    <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.WindowsApiInterop.Methods" />
+    <Import Include="VbWorkerServicePinvokeLauncher.CoreServices.WindowsApiInterop.Structs" />
     <Import Include="VbWorkerServicePinvokeLauncher.Utilities" />
   </ItemGroup>
   <ItemGroup>
