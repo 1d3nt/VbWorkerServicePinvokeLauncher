@@ -108,6 +108,7 @@
         ''' This access right allows querying a limited subset of information from a process, such as basic attributes.
         ''' It corresponds to the <c>PROCESS_QUERY_LIMITED_INFORMATION</c> constant in C++.
         ''' </remarks>
+        <UsedImplicitly>
         QueryLimitedInformation = &H1000
     End Enum
 End Namespace
