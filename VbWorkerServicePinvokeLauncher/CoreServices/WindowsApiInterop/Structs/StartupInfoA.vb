@@ -44,108 +44,108 @@
     ''' <see href="https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa">STARTUPINFOA Structure</see>.
     ''' </remarks>
     <StructLayout(LayoutKind.Sequential)>
-    Public Structure StartupInfoA
+    Friend Structure StartupInfoA
 
         ''' <summary>
         ''' The size of the structure, in bytes. This should be set to the size of the structure.
         ''' </summary>
-        Public cb As Integer
+        Friend cb As Integer
 
         ''' <summary>
         ''' Reserved; should be set to <c>NULL</c>.
         ''' </summary>
-        Public lpReserved As String
+        Friend lpReserved As String
 
         ''' <summary>
         ''' The name of the desktop. If <c>NULL</c>, the process uses the desktop of the calling thread.
         ''' </summary>
-        Public lpDesktop As String
+        Friend lpDesktop As String
 
         ''' <summary>
         ''' The title of the main window. If <c>NULL</c>, the process title is the name of the executable file.
         ''' </summary>
-        Public lpTitle As String
+        Friend lpTitle As String
 
         ''' <summary>
         ''' The x-coordinate, in pixels, of the upper-left corner of the window. This value is used only if the 
         ''' <c>STARTF_USEPOSITION</c> flag is specified in the <c>dwFlags</c> member.
         ''' </summary>
-        Public dwX As UInteger
+        Friend dwX As UInteger
 
         ''' <summary>
         ''' The y-coordinate, in pixels, of the upper-left corner of the window. This value is used only if the 
         ''' <c>STARTF_USEPOSITION</c> flag is specified in the <c>dwFlags</c> member.
         ''' </summary>
-        Public dwY As UInteger
+        Friend dwY As UInteger
 
         ''' <summary>
         ''' The width, in pixels, of the window. This value is used only if the <c>STARTF_USESIZE</c> flag is specified 
         ''' in the <c>dwFlags</c> member.
         ''' </summary>
-        Public dwXSize As UInteger
+        Friend dwXSize As UInteger
 
         ''' <summary>
         ''' The height, in pixels, of the window. This value is used only if the <c>STARTF_USESIZE</c> flag is specified 
         ''' in the <c>dwFlags</c> member.
         ''' </summary>
-        Public dwYSize As UInteger
+        Friend dwYSize As UInteger
 
         ''' <summary>
         ''' The number of character columns in the window. This value is used only if the <c>STARTF_USECOUNTCHARS</c> 
         ''' flag is specified in the <c>dwFlags</c> member.
         ''' </summary>
-        Public dwXCountChars As UInteger
+        Friend dwXCountChars As UInteger
 
         ''' <summary>
         ''' The number of character rows in the window. This value is used only if the <c>STARTF_USECOUNTCHARS</c> 
         ''' flag is specified in the <c>dwFlags</c> member.
         ''' </summary>
-        Public dwYCountChars As UInteger
+        Friend dwYCountChars As UInteger
 
         ''' <summary>
         ''' The text and background color attributes of the window. This value is used only if the 
         ''' <c>STARTF_USEFILLATTRIBUTE</c> flag is specified in the <c>dwFlags</c> member.
         ''' </summary>
-        Public dwFillAttribute As UInteger
+        Friend dwFillAttribute As UInteger
 
         ''' <summary>
         ''' A set of flags that specify which window attributes to use. This value can be a combination of 
         ''' the <c>STARTF_</c> constants.
         ''' </summary>
-        Public dwFlags As UInteger
+        Friend dwFlags As UInteger
 
         ''' <summary>
         ''' Controls how the window is to be shown. This value can be one of the <c>SW_</c> constants.
         ''' </summary>
-        Public wShowWindow As Short
+        Friend wShowWindow As Short
 
         ''' <summary>
         ''' The size of the reserved area for additional information. This value should be set to the size of 
         ''' <c>lpReserved2</c>.
         ''' </summary>
-        Public cbReserved2 As Short
+        Friend cbReserved2 As Short
 
         ''' <summary>
         ''' A pointer to additional reserved information. This value should be set to <c>NULL</c>.
         ''' </summary>
-        Public lpReserved2 As IntPtr
+        Friend lpReserved2 As IntPtr
 
         ''' <summary>
         ''' A handle to the standard input device for the process. If <c>NULL</c>, the process uses the input 
         ''' device of the parent process.
         ''' </summary>
-        Public hStdInput As IntPtr
+        Friend hStdInput As IntPtr
 
         ''' <summary>
         ''' A handle to the standard output device for the process. If <c>NULL</c>, the process uses the output 
         ''' device of the parent process.
         ''' </summary>
-        Public hStdOutput As IntPtr
+        Friend hStdOutput As IntPtr
 
         ''' <summary>
         ''' A handle to the standard error device for the process. If <c>NULL</c>, the process uses the error 
         ''' device of the parent process.
         ''' </summary>
-        Public hStdError As IntPtr
+        Friend hStdError As IntPtr
     End Structure
 End Namespace
