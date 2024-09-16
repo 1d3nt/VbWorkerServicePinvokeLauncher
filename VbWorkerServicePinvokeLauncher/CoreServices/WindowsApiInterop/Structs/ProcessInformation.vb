@@ -28,26 +28,26 @@
     ''' For additional details, see the corresponding C++ structure definition and the API documentation linked above.
     ''' </remarks>
     <StructLayout(LayoutKind.Sequential, Pack:=4)>
-    Friend Structure ProcessInformation
+    Public Structure ProcessInformation
 
         ''' <summary>
         ''' A handle to the newly created process.
         ''' </summary>
-        Friend hProcess As IntPtr
+        Public hProcess As IntPtr
 
         ''' <summary>
         ''' A handle to the primary thread of the newly created process.
         ''' </summary>
-        Friend hThread As IntPtr
+        Public hThread As IntPtr
 
         ''' <summary>
         ''' The process identifier (PID) of the newly created process.
         ''' </summary>
-        Friend dwProcessId As UInteger
+        Public dwProcessId As UInteger
 
         ''' <summary>
         ''' The thread identifier (TID) of the primary thread of the newly created process.
         ''' </summary>
-        Friend dwThreadId As UInteger
+        Public dwThreadId As UInteger
     End Structure
 End Namespace

@@ -34,36 +34,36 @@
     ''' <see href="https://microsoft.github.io/windows-docs-rs/doc/windows/Win32/System/Threading/struct.PROCESS_BASIC_INFORMATION.html">PROCESS_BASIC_INFORMATION Structure</see>.
     ''' </remarks>
     <StructLayout(LayoutKind.Sequential, Pack:=8)>
-    Friend Structure ProcessBasicInformation
+    Public Structure ProcessBasicInformation
 
         ''' <summary>
         ''' The exit status of the process.
         ''' </summary>
-        Friend ExitStatus As IntPtr
+        Public ExitStatus As IntPtr
 
         ''' <summary>
         ''' A pointer to the Process Environment Block (PEB) for the process.
         ''' </summary>
-        Friend PebBaseAddress As IntPtr
+        Public PebBaseAddress As IntPtr
 
         ''' <summary>
         ''' The process affinity mask, which specifies the processors on which the process is allowed to run.
         ''' </summary>
-        Friend AffinityMask As IntPtr
+        Public AffinityMask As IntPtr
 
         ''' <summary>
         ''' The base priority of the process.
         ''' </summary>
-        Friend BasePriority As IntPtr
+        Public BasePriority As IntPtr
 
         ''' <summary>
         ''' The unique identifier of the process.
         ''' </summary>
-        Friend UniqueProcessId As IntPtr
+        Public UniqueProcessId As IntPtr
 
         ''' <summary>
         ''' The unique identifier of the process from which this process was inherited.
         ''' </summary>
-        Friend InheritedFromUniqueProcessId As IntPtr
+        Public InheritedFromUniqueProcessId As IntPtr
     End Structure
 End Namespace
