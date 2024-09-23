@@ -74,4 +74,68 @@ Once the service is installed, you can start it using the following command:
 
 ```bash
 sc.exe start VbWorkerService
+```
 
+## Project Structure
+
+```bash
+|-- Application
+|   |-- AppRunner.vb
+|   +-- ServiceConfigurator.vb
+|-- CoreServices
+|   |-- ServiceManagement
+|   |   |-- Interfaces
+|   |   |   |-- IServiceControlManager.vb
+|   |   |   |-- IServiceCreator.vb
+|   |   |   |-- IServiceDeleter.vb
+|   |   |   |-- IServiceInstaller.vb
+|   |   |   |-- IServicePathProvider.vb
+|   |   |   |-- IServiceStarter.vb
+|   |   |   |-- IServiceStatusChecker.vb
+|   |   |   |-- IServiceStopper.vb
+|   |   |   +-- IServiceUninstaller.vb
+|   |   |-- ServiceControlManager.vb
+|   |   |-- ServiceCreator.vb
+|   |   |-- ServiceDeleter.vb
+|   |   |-- ServiceInstaller.vb
+|   |   |-- ServicePathProvider.vb
+|   |   |-- ServiceStarter.vb
+|   |   |-- ServiceStatusChecker.vb
+|   |   |-- ServiceStopper.vb
+|   |   +-- ServiceUninstaller.vb
+|   +-- WindowsApiInterop
+|       |-- Enums
+|       |   |-- DesiredAccess.vb
+|       |   |-- ServiceControlCodes.vb
+|       |   |-- ServiceErrorControlFlags.vb
+|       |   |-- ServiceManagerAccessFlags.vb
+|       |   |-- ServiceType.vb
+|       |   |-- StartType.vb
+|       |   +-- Win32ErrorCodes.vb
+|       |-- Methods
+|       |   |-- HandleManager.vb
+|       |   |-- MemoryManager.vb
+|       |   +-- NativeMethods.vb
+|       |-- Structs
+|       |   +-- ServiceStatus.vb
+|       +-- ExternDll.vb
+|-- Utilities
+|   |-- ErrorHandling
+|   |   |-- Interfaces
+|   |   |   |-- IErrorHandlingService.vb
+|   |   |   |-- IWin32ErrorHelper.vb
+|   |   |   +-- IWin32ErrorUtility.vb
+|   |   |-- ErrorHandlingService.vb
+|   |   |-- Win32ErrorHelper.vb
+|   |   +-- Win32ErrorUtility.vb
+|   |-- Interfaces
+|   |   |-- IUserInputChecker.vb
+|   |   |-- IUserInputReader.vb
+|   |   +-- IUserPrompter.vb
+|   |-- AsynchronousProcessor.vb
+|   |-- UserInputChecker.vb
+|   |-- UserInputReader.vb
+|   +-- UserPrompter.vb
+|-- GlobalAttributes.vb
++-- Program.vb
+```
