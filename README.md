@@ -82,6 +82,7 @@ sc.exe start VbWorkerService
 |-- Application
 |   |-- AppRunner.vb
 |   +-- ServiceConfigurator.vb
+|  
 |-- CoreServices
 |   |-- ServiceManagement
 |   |   |-- Interfaces
@@ -119,6 +120,7 @@ sc.exe start VbWorkerService
 |       |-- Structs
 |       |   +-- ServiceStatus.vb
 |       +-- ExternDll.vb
+|  
 |-- Utilities
 |   |-- ErrorHandling
 |   |   |-- Interfaces
@@ -136,6 +138,7 @@ sc.exe start VbWorkerService
 |   |-- UserInputChecker.vb
 |   |-- UserInputReader.vb
 |   +-- UserPrompter.vb
+|  
 |-- GlobalAttributes.vb
 +-- Program.vb
 ```
